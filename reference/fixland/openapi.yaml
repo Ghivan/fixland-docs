@@ -40,12 +40,14 @@ paths:
       operationId: '1'
       tags:
         - Game mode
+        - API
     parameters: []
   '/game_image/{imageId}':
     get:
       summary: Game image info
       tags:
         - Game image
+        - API
       responses:
         '200':
           description: OK
@@ -77,6 +79,7 @@ paths:
       summary: Game modes list
       tags:
         - Game mode
+        - API
       responses:
         '200':
           description: OK
