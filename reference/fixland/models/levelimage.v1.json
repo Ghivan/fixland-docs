@@ -1,0 +1,43 @@
+{
+  "title": "LevelImage",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name (based on locale)"
+    },
+    "url": {
+      "type": "string",
+      "description": "Image preview url"
+    },
+    "story": {
+      "type": "string",
+      "description": "Description of the image (succesful pass)"
+    },
+    "gameMode": {
+      "type": "string"
+    },
+    "gameModeItemId": {
+      "type": "string"
+    },
+    "bugs": {
+      "type": "array",
+      "items": {
+        "$ref": "./imagebug.v1.json"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "url",
+    "gameMode",
+    "gameModeItemId"
+  ],
+  "x-tags": [
+    "Game image"
+  ]
+}

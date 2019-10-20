@@ -1,0 +1,17 @@
+{
+  "title": "GameModeSubsection",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "subsection name based on locale"
+    }
+  },
+  "x-tags": [
+    "Game image",
+    "Game mode"
+  ]
+}

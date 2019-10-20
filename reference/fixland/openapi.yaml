@@ -3,8 +3,113 @@ info:
   title: Fixland
   version: '1.0'
   description: Fixland API
+  contact:
+    email: ess.webprog@gmail.com
 servers:
   - url: 'http://localhost:3000'
-paths: {}
+paths:
+  /game_modes:
+    get:
+      summary: Game mode info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        gameMode:
+                          type: string
+                          description: "One of: 'map', 'premium', 'weekly_chalenge'"
+                        subsections:
+                          type: array
+                          description: name based on locale
+                          items:
+                            $ref: ./models/gamemodesubsection.v1.json
+                        items:
+                          type: array
+                          items:
+                            $ref: ./models/levelimage.v1.json
+      description: 'Game mode information (images, etc.)'
+      operationId: '1'
+      tags:
+        - Game mode
+    parameters: []
+  '/game_image/{imageId}':
+    get:
+      summary: Game image info
+      tags:
+        - Game image
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/levelimage.v1.json
+      description: Game image information
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - en
+              - zh
+              - ru
+            default: en
+          in: query
+          name: locale
+          description: Application language
+      operationId: '3'
+    parameters:
+      - schema:
+          type: string
+        name: imageId
+        in: path
+        required: true
+  '/game_modes/{itemId}':
+    get:
+      summary: Game modes list
+      tags:
+        - Game mode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: ./models/levelimage.v1.json
+                required:
+                  - data
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - en
+              - zh
+              - ru
+            default: en
+            maxLength: 0
+          in: query
+          name: locale
+          description: Application language
+      operationId: '2'
+      description: Available game modes
+    parameters:
+      - schema:
+          type: string
+        name: itemId
+        in: path
+        required: true
 components:
   schemas: {}

@@ -1,0 +1,42 @@
+{
+  "title": "ImageBug",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "Bug image url"
+    },
+    "order": {
+      "type": "number",
+      "description": "Bug order (bug priority if overlayed)"
+    },
+    "position": {
+      "description": "Bug positions array (coordinates on image, square numbers started from top left corner of image)",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "url",
+    "order",
+    "position"
+  ],
+  "x-examples": {
+    "example-bug": {
+      "value": {
+        "url": "http://test.com",
+        "order": 3,
+        "postion": [
+          45,
+          67,
+          175
+        ]
+      }
+    }
+  },
+  "x-tags": [
+    "Game image"
+  ]
+}
